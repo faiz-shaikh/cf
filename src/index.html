@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Allow installing the app to the homescreen -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=1024, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+   <!-- epam   -->
+   <link type="text/css" href="http://sta-ci.statravel.local:8080/admin/resources/css/include.css" rel="stylesheet">
+   <link href="http://sta-ci.statravel.local:8080/admin/resources/css/global/payment-forms.css" rel="stylesheet" />
+
+   <!--[if lt IE 10]>
+     <link type="text/css" href="http://sta-ci.statravel.local:8080/admin/resources/css/global/ie.css" rel="stylesheet">
+     <![endif]-->
+
+   <!-- epam -->
+   <script src="http://sta-ci.statravel.local:8080/admin/resources/js/admin/libraries/jquery.v1.11.0.js" type="text/javascript"></script>
+   <script src="http://sta-ci.statravel.local:8080/admin/resources/js/admin/libraries/chosen.jquery.min.js" type="text/javascript"></script>
+   <script src="http://sta-ci.statravel.local:8080/admin/resources/js/admin/main.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="/admin/resources/js/admin/ie.js" type="text/javascript"></script>
+    <![endif]-->
+
+  <title>STA Travel Admin</title>
+</head>
+
+<body>
+  <style>
+.btnBox {
+    margin: 20px 0;
+}
+.linkBtn {
+  display: inline-block;
+  margin: 5px;
+}
+.linkBtn:first-child {
+  margin-left:0px;
+}
+.smallerFont {
+  font-size: 12px;
+}
+.bold {
+  font-weight: bold;
+}
+  </style>
+  <!-- Display a message if JS has been disabled on the browser. -->
+  <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong>    to make this app work.</noscript>
+
+  <section class="page">
+
+    <header class="pageHeader clearfix">
+
+      <a href="http://sta-ci.statravel.local:8080/admin/index" class="logo clearfix">
+        <img src="http://sta-ci.statravel.local:8080/admin/resources/img/logo.png" alt="STA logo">
+        <span></span>
+      </a>
+
+      <aside class="userBar clearfix">
+
+        <form id="posDropdown" class="posForm" action="/admin/posdropdown" method="POST">
+          <select id="value" name="value" class="market chznSelect" onchange="this.form.submit()"><option value="1ASTAGLOBE-AT">AT</option><option value="1ASTAGLOBE-AU">AU</option><option value="1ASTAGLOBE-GBBTW">BTW</option><option value="1ASTAGLOBE-CHDE">CHD</option><option value="1ASTAGLOBE-CHFR">CHF</option><option value="1ASTAGLOBE-DE">DE</option><option value="1ASTAGLOBE-FR">FR</option><option value="1ASTAGLOBE-IDIV">IDIV</option><option value="1ASTAGLOBE-NZ">NZ</option><option value="1ASTAGLOBE-SG">SG</option><option value="1ASTAGLOBE-TH">TH</option><option value="1ASTAGLOBE-GB" selected="selected">UK</option><option value="1ASTAGLOBE-US">US</option><option value="1ASTAGLOBE-ZA">ZA</option></select>
+        </form>
+
+        <div class="userBox">
+          <p>Welcome, <b>User</b></p>
+          <a href="http://sta-ci.statravel.local:8080/admin/j_spring_security_logout" class="logOut">Log Out</a>
+        </div>
+      </aside>
+    </header>
+
+    <section class="content clearfix">
+
+      <aside class="sidebar">
+        <ul class="sidebarNav">
+
+          <li class="divider">Booking Engine</li>
+
+          <li>
+            <a href="#" class="hotels clearfix">
+              <span class="icon"></span>
+              <span class="title">Hotels</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/hotels/search/cfg?productId=8" data-page-name="bookingEngineHotelsSearch">Search</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/hotels/results/cfg?productId=8" data-page-name="bookingEngineHotelsResults">Results</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" class="flights clearfix">
+              <span class="icon"></span>
+              <span class="title">Flights</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/flights/search/cfg?productId=9" data-page-name="bookingEngineFlightsSearchConfig">Search</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/flights/results/cfg?productId=9" data-page-name="bookingEngineFlightsSearchResults">Results</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/flights/specialoffer/cfg?productId=9" data-page-name="bookingEngineFlightsSpecialOffer">Special offers calendar</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" class="insurancePage clearfix">
+              <span class="icon"></span>
+              <span class="title">Insurance</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/insurance/search/cfg?productId=10" data-page-name="bookingEngineInsuranceSearch">Search</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/insurance/results/cfg?productId=10" data-page-name="bookingEngineInsuranceResults">Results</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" class="generalConfigPage clearfix">
+              <span class="icon"></span>
+              <span class="title extraline">General
+                <span>Configuration</span>
+              </span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/general/content/cfg?productId=11" data-page-name="bookingEngineContentConfig">Content</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/interstitial/flights" data-page-name="bookingEngineFlightInterstitials">Flight Interstitials</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/general/livechat/cfg?productId=11" data-page-name="bookingEngineLiveChatConfig">Live Chat</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/general/ui/cfg?productId=11" data-page-name="bookingEngineCustomUIConfig">Custom UI</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/general/cookies/cfg?productId=11" data-page-name="bookingEngineCookiesConfig">Cookies</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/aircrosssell/cfg?productId=12" class="crossSellLink clearfix" data-page-name="bookingEngineAirCrossSell">
+              <span class="icon"></span>
+              <span class="title extraline">Air
+                <span>Cross Sell</span>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/checkout/cfg?productId=13" class="checkoutLink clearfix" data-page-name="bookingEngineCheckout">
+              <span class="icon"></span>
+              <span class="title">Checkout</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/visa/cfg?productId=14" class="visaLink clearfix" data-page-name="bookingEngineVisa">
+              <span class="icon"></span>
+              <span class="title">Visa</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/discountcard/cfg?productId=15" class="discountCardsLink clearfix" data-page-name="bookingEngineDiscountCards">
+              <span class="icon"></span>
+              <span class="title">Discount Cards</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/giftcard/cfg?productId=20" class="giftCardLink clearfix" data-page-name="bookingEngineGiftCards">
+              <span class="icon"></span>
+              <span class="title">Gift Card</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="interstitials clearfix">
+              <span class="icon"></span>
+              <span class="title">Interstitials</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/interstitials/flight/banners?productId=33" data-page-name="bookingEngineInterstitialsFlight">Flight Interstitials</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/interstitials/hotel/banners?productId=33" data-page-name="bookingEngineInterstitialsHotel">Hotel Interstitials</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" class="miscproducts clearfix">
+              <span class="icon"></span>
+              <span class="title">Misc products</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/miscproducts/discounts?productId=39" data-page-name="miscproductsDiscounts">Discount cards</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/miscproducts/gifts?productId=39" data-page-name="miscproductsGifts">Gift cards</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/miscproducts/visas?productId=39" data-page-name="miscproductsVisas">Visas</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/miscproducts/mfpasses?productId=39" data-page-name="miscproductsMfpasses">Multiflex passes</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/miscproducts/codes?productId=39" data-page-name="miscproductsCodes">Resource Set Codes</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li class="divider">Merchandising</li>
+
+          <li>
+            <a href="#" class="flights clearfix">
+              <span class="icon"></span>
+              <span class="title">Flights</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://s607650rgvl157.bluee.net:8080/sta-file-importer/pages/controller?command=VIEW_IMPORT_DIALOG" data-page-name="merchandisingFlightsGeneralConfig">General Config</a>
+              <a href="http://s607650rgvl157.bluee.net:8080/sta-file-importer/pages/controller?command=VIEW_IMPORT_DIALOG" data-page-name="merchandisingFlightsBlacklisting">Blacklisting</a>
+              <a href="/cache-config" data-page-name="merchandisingFlightsCacheConfig">Cache Config</a>
+              <a href="/manual-fare-upload" data-page-name="merchandisingFlightsManualFaresUpload">Manual Fares Upload</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" class="insurancePage clearfix">
+              <span class="icon"></span>
+              <span class="title">Insurance</span>
+            </a>
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/merchandising/insurance/friendly_name?productId=29" data-page-name="merchandisingInsuranceFriendlyNames">Friendly Names</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/merchandising/insurance/bundle_set?productId=29" data-page-name="merchandisingInsuranceSetCodes">Resource Set Codes</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/merchandising/insurance/policy_mapping?productId=29" data-page-name="merchandisingInsuranceMapPolicies">Map Policies</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/merchandising/insurance/policy_ranking?productId=29" data-page-name="merchandisingInsuranceRankPolicies">Rank Policies</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/merchandising/insurance/admin?productId=29" data-page-name="merchandisingInsuranceAdmin">Insurance Admin</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="http://10.83.17.124:8080/AdmSystem/Post_Approval?lang=en" class="destinationHub clearfix" target="_blank">
+              <span class="icon"></span>
+              <span class="title extraline">Destination
+                <span>Hub</span>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="contactUs clearfix">
+              <span class="icon"></span>
+              <span class="title">Contact Us</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/store/cfg?productId=28" data-page-name="contactUsStores">Store</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/expert/cfg?productId=28" data-page-name="contactUsTravelExperts">Travel Experts</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/contactus/freespee/#/" data-page-name="contactUsFreespee">Freespee</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li class="divider">Booking Engine Text</li>
+
+          <li>
+            <a href="#" class="onPageText clearfix">
+              <span class="icon"></span>
+              <span class="title">On Page Text</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/1?productId=17" data-page-name="resourcebundles_air">Air</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/2?productId=17" data-page-name="resourcebundles_hotel">Hotel</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/3?productId=17" data-page-name="resourcebundles_insurance">Insurance</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/4?productId=17" data-page-name="resourcebundles_visa">Visa</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/5?productId=17" data-page-name="resourcebundles_discountcard">Discount Card</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/6?productId=17" data-page-name="resourcebundles_giftcard">Gift Card</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/7?productId=17" data-page-name="resourcebundles_shoppingcart">Shopping Cart</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/8?productId=17" data-page-name="resourcebundles_checkout">Checkout</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/9?productId=17" data-page-name="resourcebundles_general">General</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/13?productId=17" data-page-name="resourcebundles_searchwidget">Search Widget</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/14?productId=17" data-page-name="resourcebundles_confirmation">Confirmation</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/1/16?productId=17" data-page-name="resourcebundles_multiflexpass">Multiflex Pass</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" class="errorMessages clearfix">
+              <span class="icon"></span>
+              <span class="title">Error Messages</span>
+            </a>
+
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/1?productId=16" data-page-name="errormessages_air">Air</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/2?productId=16" data-page-name="errormessages_hotel">Hotel</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/3?productId=16" data-page-name="errormessages_insurance">Insurance</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/4?productId=16" data-page-name="errormessages_visa">Visa</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/5?productId=16" data-page-name="errormessages_discountcard">Discount Card</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/6?productId=16" data-page-name="errormessages_giftcard">Gift Card</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/7?productId=16" data-page-name="errormessages_shoppingcart">Shopping Cart</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/8?productId=16" data-page-name="errormessages_checkout">Checkout</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/9?productId=16" data-page-name="errormessages_general">General</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/13?productId=16" data-page-name="errormessages_searchwidget">Search Widget</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/14?productId=16" data-page-name="errormessages_confirmation">Confirmation</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/2/16?productId=16" data-page-name="errormessages_multiflexpass">Multiflex Pass</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/insurance/results?productId=30" class="insurancePage clearfix"
+              data-page-name="bookingEngTextInsuranceResults">
+              <span class="icon"></span>
+              <span class="title extraline">Insurance Policy /
+                <span>Results Page</span>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/resourcebundle/miscproducts/results?productId=40" class="miscproducts clearfix"
+              data-page-name="bookingEngTextMiscproductsResults">
+              <span class="icon"></span>
+              <span class="title extraline">Misc Products /
+                <span>Results Page</span>
+              </span>
+            </a>
+          </li>
+
+          <li class="divider">Group/User Management</li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/groupmanagement/groups?productId=18" class="groupManageLink clearfix" data-page-name="groupManagement">
+              <span class="icon"></span>
+              <span class="title extraline">Group
+                <span>Management</span>
+              </span>
+            </a>
+          </li>
+
+          <li>
+
+            <a href="http://sta-ci.statravel.local:8080/admin/usermanagement/users?productId=19" class="userManageLink clearfix" data-page-name="userManagement">
+              <span class="icon"></span>
+              <span class="title extraline">User
+                <span>Management</span>
+              </span>
+            </a>
+          </li>
+
+          <li>
+
+            <a href="http://sta-ci.statravel.local:8080/admin/history/cfg?productId=21" class="adminUIHistoryLink clearfix" data-page-name="adminUIHistory">
+              <span class="icon"></span>
+              <span class="title extraline">Admin UI
+                <span>History</span>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="exportImportConfigLink clearfix">
+              <span class="icon"></span>
+              <span class="title extraline">Export / Import
+                <span>Configuration</span>
+              </span>
+            </a>
+
+            <div class="subNav">
+
+              <a href="http://sta-ci.statravel.local:8080/admin/export/cfg" data-page-name="exportConfig">Export Config</a>
+
+              <a href="http://sta-ci.statravel.local:8080/admin/import/cfg" data-page-name="importConfig">Import Config</a>
+
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li class="divider">Global Settings</li>
+
+          <li>
+            <a href="#" class="paymentTypesLink clearfix">
+              <span class="icon"></span>
+              <span class="title">Payment Types</span>
+            </a>
+            <div class="subNav">
+              <a href="http://sta-ci.statravel.local:8080/admin/paymentcard/cfg?productId=25" data-page-name="globalSettingsPaymentCardTypes">Card Types</a>
+              <a href="http://sta-ci.statravel.local:8080/admin/binlist/cfg?productId=25" data-page-name="globalSettingsPaymentBinList">Bin List</a>
+              <span class="icon"></span>
+            </div>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/airline/3/11?productId=26" class="airlineNamesLink clearfix" data-page-name="airlinenames_airlinenames">
+              <span class="icon"></span>
+              <span class="title">Airline Names</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/airline/4/12?productId=27" class="aircraftTypeLink clearfix" data-page-name="aircrafttype_aircrafttypes">
+              <span class="icon"></span>
+              <span class="title">Aircraft Type</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/destination/list/1?productId=32" class="destinationsLink clearfix" data-page-name="destinations">
+              <span class="icon"></span>
+              <span class="title">Destinations</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/country/list/1?productId=36" class="countriesLink clearfix" data-page-name="countries">
+              <span class="icon"></span>
+              <span class="title">Countries</span>
+            </a>
+          </li>
+
+          <li class="divider">Search Widget Settings</li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/search_widget/settings?productId=31" class="searchWidgetLink clearfix"
+              data-page-name="searchWidgetSettings">
+              <span class="icon"></span>
+              <span class="title extraline">Search Widget Settings</span>
+            </a>
+          </li>
+
+          <li class="divider">Destination Management</li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/mapping/destination/flights?productId=34" class="flights clearfix" data-page-name="destinationManagementFlights">
+              <span class="icon"></span>
+              <span class="title">Flights</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://sta-ci.statravel.local:8080/admin/mapping/destination/hotels?productId=35" class="hotels clearfix" data-page-name="destinationManagementHotels">
+              <span class="icon"></span>
+              <span class="title">Hotels</span>
+            </a>
+          </li>
+
+        </ul>
+      </aside>
+      <input type="hidden" id="roleName" value="editor" />
+
+      <section class="main flights" data-page-name="merchandisingFlightsCacheConfig">
+        <header class="contentHeader clearfix">
+          <h2>
+            Merchandising
+          </h2>
+          <h1 class="mainTitle">
+            Flights
+            <span></span>
+          </h1>
+
+          <span class="label editor">
+            <span class="posLabel">UK</span> Editor
+          </span>
+        </header>
+        <div id="app">
+        </div>
+        <script src="/bundle.js"></script>
+      </section>
+    </section>
+  </section>
+
+  Admin UI v1.84.3
+</body>
+
+</html>
+
+
