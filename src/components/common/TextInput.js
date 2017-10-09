@@ -1,9 +1,17 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from "react";
 
-const TextInput = ({name,inputType, label, onChange, placeholder, value, error}) => {
-  let wrapperClass = 'form-group row clearfix';
+const TextInput = ({
+  name,
+  inputType,
+  label,
+  onChange,
+  placeholder,
+  value,
+  error
+}) => {
+  let wrapperClass = "form-group row clearfix";
   if (error && error.length > 0) {
-    wrapperClass += " " + 'has-error';
+    wrapperClass += " " + "has-error";
   }
 
   return (
@@ -16,7 +24,8 @@ const TextInput = ({name,inputType, label, onChange, placeholder, value, error})
           className="form-control"
           placeholder={placeholder}
           value={value}
-          onChange={onChange}/>
+          onChange={onChange}
+        />
         {error && <div className="alert alert-danger">{error}</div>}
       </div>
     </div>

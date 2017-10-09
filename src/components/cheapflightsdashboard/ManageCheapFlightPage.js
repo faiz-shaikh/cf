@@ -1,10 +1,10 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as cheapFlightsActions from '../../actions/cheapFlightsActions';
-import CheapFlightForm from './CheapFlightForm';
-import {regionsFormattedForDropdown} from '../../selectors/selectors';
-import toastr from 'toastr';
+import React, { PropTypes } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as cheapFlightsActions from "../../actions/cheapFlightsActions";
+import CheapFlightForm from "./CheapFlightForm";
+import { regionsFormattedForDropdown } from "../../selectors/selectors";
+import toastr from "toastr";
 
 export class ManageCheapFlightPage extends React.Component {
   constructor(props, context) {
@@ -23,7 +23,7 @@ export class ManageCheapFlightPage extends React.Component {
     if (this.props.cheapflight.id != nextProps.cheapflight.id) {
       console.log(this.props);
       // Necessary to populate form when existing cheapflight is loaded directly.
-      this.setState({cheapflight: Object.assign({}, nextProps.cheapflight)});
+      this.setState({ cheapflight: Object.assign({}, nextProps.cheapflight) });
     }
   }
 
@@ -31,7 +31,7 @@ export class ManageCheapFlightPage extends React.Component {
     const field = event.target.name;
     let cheapflight = Object.assign({}, this.state.cheapflight);
     cheapflight[field] = event.target.value;
-    return this.setState({cheapflight: cheapflight});
+    return this.setState({ cheapflight: cheapflight });
   }
 
   cheapFlightFormIsValid() {
@@ -39,14 +39,13 @@ export class ManageCheapFlightPage extends React.Component {
     let errors = {};
 
     if (this.state.cheapflight.user.length < 5) {
-      errors.user = 'Username must be at least 5 characters.';
+      errors.user = "Username must be at least 5 characters.";
       formIsValid = false;
     }
 
-    this.setState({errors: errors});
+    this.setState({ errors: errors });
     return formIsValid;
   }
-
 
   saveCheapflight(event) {
     event.preventDefault();
@@ -55,20 +54,21 @@ export class ManageCheapFlightPage extends React.Component {
       return;
     }
 
-    this.setState({saving: true});
+    this.setState({ saving: true });
 
-    this.props.actions.saveCheapflight(this.state.cheapflight)
+    this.props.actions
+      .saveCheapflight(this.state.cheapflight)
       .then(() => this.redirect())
       .catch(error => {
         toastr.error(error);
-        this.setState({saving: false});
+        this.setState({ saving: false });
       });
   }
 
   redirect() {
-    this.setState({saving: false});
-    toastr.success('CheapFlight saved');
-    this.context.router.push('/cheapflights-dashboard');
+    this.setState({ saving: false });
+    toastr.success("CheapFlight saved");
+    this.context.router.push("/cheapflights-dashboard");
   }
 
   render() {
@@ -105,7 +105,17 @@ function getCheapFlightById(cheapflights, id) {
 function mapStateToProps(state, ownProps) {
   const cheapFlightId = ownProps.params.id; // from the path `/cheapflight/:id`
 
-let cheapflight = {id:'', editHref: '', destinationName: '', user: '', typeof:'', pageUrl: '', noOfDestinations: '', noOfFlights: '', updatedOn: ''};
+  let cheapflight = {
+    id: "",
+    editHref: "",
+    destinationName: "",
+    user: "",
+    typeof: "",
+    pageUrl: "",
+    noOfDestinations: "",
+    noOfFlights: "",
+    updatedOn: ""
+  };
 
   if (cheapFlightId && state.cheapflights.length > 0) {
     cheapflight = getCheapFlightById(state.cheapflights, cheapFlightId);
@@ -123,4 +133,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCheapFlightPage);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  ManageCheapFlightPage
+);

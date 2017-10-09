@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
+import React, { PropTypes } from "react";
+import { Link } from "react-router";
 
-const CheapFlightsListRow = ({cheapflight}) => {
+const CheapFlightsListRow = ({ cheapflight }) => {
   return (
     <tr>
       <td>{cheapflight.id}</td>
@@ -10,16 +10,22 @@ const CheapFlightsListRow = ({cheapflight}) => {
       <td>{cheapflight.noOfDestinations}</td>
       <td>{cheapflight.noOfFlights}</td>
       <td>{cheapflight.user}</td>
-      <td><span className="dropdown">
-        <button className="btn">options</button>
+      <td>
+        <span className="dropdown">
+          <button className="btn">options</button>
           <label>
             <input type="checkbox" />
             <ul>
-              <li><Link to={'/cheapflight/' + cheapflight.id}>Edit Destination</Link></li>
+              <li>
+                <Link to={"/cheapflight/" + cheapflight.id}>
+                  Edit Destination
+                </Link>
+              </li>
               <li>Edit Fare Rules</li>
             </ul>
           </label>
-        </span></td>
+        </span>
+      </td>
     </tr>
   );
 };

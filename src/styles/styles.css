@@ -111,6 +111,173 @@ td > .dropdown ul {
   padding: 0;
 }
 
+/*Manual Fare Upload */
+
+/* ****************** ********************* ****************** */
+.btnBox {
+  margin: 20px 0;
+}
+.linkBtn {
+display: inline-block;
+margin: 5px;
+}
+.linkBtn:first-child {
+margin-left:0px;
+}
+.smallerFont {
+font-size: 12px;
+}
+.bold {
+font-weight: bold;
+}
+tr.reactable-filterer, tr.reactable-filter-input {
+display:none;
+}
+#manual-offers-upload tbody.reactable-pagination tr:hover td {
+background-color: #f3f3f3;
+}
+span.paymentFormsLabel {
+  margin: 0;
+}
+.record-per-page {
+  margin: 50px 0 40px 0;
+}
+
+.reactable-pagination {
+border-bottom: 1px solid #e6e6e6;
+  padding: 10px 0 10px 10px;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.reactable-pagination td {
+padding-left:30%;
+padding-right:30%;
+}
+.reactable-page-button {
+width: 30px;
+height: 30px;
+color: #166bb5;
+text-align: center;
+line-height: 30px;
+font-size: 14px;
+margin: 0 0 0 5px;
+padding: 0 6px;
+box-sizing: border-box;
+}
+.reactable-pagination td a {
+float:left;
+width: 30px;
+height: 30px;
+cursor: pointer;
+margin-right:5px;
+
+}
+.reactable-page-button:hover, .reactable-page-button.reactable-current-page {
+background: #0065bd;
+color: #fff;
+text-decoration: none;
+}
+.reactable-next-page, .reactable-next-page:hover{
+background: url(http://sta-ci.statravel.local:8080/admin/resources/ico/pager_spr.png)12px 9px no-repeat #0065bd;
+}
+.reactable-previous-page, .reactable-previous-page:hover {
+background: url(http://sta-ci.statravel.local:8080/admin/resources/ico/pager_spr.png)12px -21px no-repeat #0065bd;
+}
+.record-per-page span {
+  margin-top: 30px;
+}
+select::-ms-expand {
+  display: none;
+}
+
+select#select-records-display {
+ -webkit-appearance: button;
+ -webkit-border-radius: 2px;
+ -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+ -webkit-padding-end: 20px;
+ -webkit-padding-start: 2px;
+ -webkit-user-select: none;
+ -moz-appearance: none;
+ background: url(http://sta-ci.statravel.local:8080/admin/resources/ico/chzn_spr.png)49px 1px no-repeat;
+ border: 1px solid #d5d6d7;
+ color: #434343;
+ font-size: 16px;;
+ margin: 20px;
+ overflow: hidden;
+ padding: 5px 10px;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ width: 85px;
+ height:36px;
+ cursor: pointer;
+}
+.wrapper {
+width:100%;
+height:100%;
+position:relative;
+top:0;
+left:0;
+}
+.cover {
+width:100%;
+height:200%;
+background-color:rgba(0, 0, 0, 0.5);
+position:absolute;
+top:0;
+left:0;
+display:block;
+color:#fff;
+}
+
+.light-box {
+width: 500px;
+height: auto;
+margin: 10% auto;
+background: #fff;
+position: absolute;
+left: 40%;
+right: 40%;
+top:0;
+text-align: center;
+padding: 30px;
+box-sizing: border-box;
+line-height:4em;
+box-shadow: 0px 0px 30px 5px rgba(90, 89, 89, 0.59);
+transition: transform 0.3s ease-out;
+border-radius: 6px;
+}
+
+label.btn.btn-success.btn-lg {
+  z-index: 2;
+  position: relative;
+}
+
+.error-heading {
+color:red;
+margin-bottom:15px;
+}
+.success-heading {
+color:green;
+}
+.error-body {
+line-height: 1.5;
+margin-bottom:15px;
+}
+a#download-template, .linkBtn:last-child {
+margin-left: 0;
+}
+a#publish-to-live {
+max-height: 36px;
+min-height: 33px;
+margin-left: 5px;
+}
+select::-ms-clear{
+display:none;
+}
+
 /**
  * React Select
  * ============
