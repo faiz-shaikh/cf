@@ -44,4 +44,4 @@ jobs:
 
       - run:
           name: Building Docker Image
-          command: docker build --tag flights-cache-admin:1 --file ./Dockerfile .
+          command: docker build --tag flights-cache-admin:1 .
