@@ -7,14 +7,12 @@ import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import {loadCheapflights} from './actions/cheapFlightsActions';
-import {loadAuthors} from './actions/authorActions';
 import {loadRegions} from './actions/regionActions';
 import './styles/styles.css'; //Webpack can import CSS files too!
 import '../node_modules/toastr/build/toastr.min.css';
 
 const store = configureStore();
 store.dispatch(loadCheapflights());
-store.dispatch(loadAuthors());
 store.dispatch(loadRegions());
 
 render(

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Select from "react-select";
+import toastr from "toastr";
 
 const d = document.getElementById("value");
 const pos = d.options[d.selectedIndex].text.toLowerCase();
@@ -87,6 +88,7 @@ class CacheConfig extends React.Component {
           pos
         }
       })
+      .then(toastr.success("config saved"))
       .catch(err => {
         throw err;
       });
@@ -131,7 +133,7 @@ class CacheConfig extends React.Component {
         >
           Opaqued Airline List
         </label>
-        <Select.Async
+        <Select
           multi
           options={this.state.options}
           onChange={this.handleOnChange}
@@ -141,8 +143,6 @@ class CacheConfig extends React.Component {
           clearable={false}
           backspaceRemoves={false}
           label="Opaqued Airline List"
-          loadOptions={this.getOptions}
-          isLoading
         />
         <div className="row twoColMultiSelect clearfix selectColumn">
           <div

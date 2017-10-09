@@ -1,10 +1,10 @@
 import expect from 'expect';
-import {authorsFormattedForDropdown} from './selectors';
+import {regionsFormattedForDropdown} from './selectors';
 
-describe('Author Selectors', () => {
-  describe('authorsFormattedForDropdown', () => {
+describe('Region Selectors', () => {
+  describe('regionsFormattedForDropdown', () => {
     it('should return author data formatted for use in a dropdown', () => {
-      const authors = [
+      const regions = [
         {id: 'country', firstName: 'Country'},
         {id: 'city',firstName: 'City'}
       ];
@@ -14,7 +14,7 @@ describe('Author Selectors', () => {
         {value: 'city', text: 'City'}
       ];
 
-      expect(authorsFormattedForDropdown(authors)).toEqual(expected);
+      expect(regionsFormattedForDropdown(regions)).toEqual(expected);
     });
   });
 });
