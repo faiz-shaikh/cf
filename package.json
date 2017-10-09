@@ -30,6 +30,8 @@
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",
     "react-select": "^1.0.0-rc.10",
+    "react-timestamp": "^4.2.1",
+    "reactable": "^0.14.1",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
     "toastr": "2.1.2"

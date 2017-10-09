@@ -11,8 +11,7 @@ const localisation = {
       <div id="output" class="container"></div>`,
     loading: 'Please wait, your CSV file is now loading . . .',
     fileExtensionError: '<p>Only file with <strong>.csv</strong> extension</p><p>can be uploaded!</p><a id="wrong-format-cancel" type="button" class="btn btn-success btn-lg I">Cancel</a>',
-    fileUploadSuccess: '<h2 class="success-heading">Upload successfull</h2><p>{#SERVERRESPONSE#}</p><a href="#" class="btn btn-success btn-lg I" id="close-upload-successfull">Cancel</a><a href="http://www.statravel.co.uk" class="btn linkBtn" id="publish-to-live">Publish to live</a>',
+    fileUploadSuccess: '<h2 class="success-heading">Upload successfull</h2><p>{#SERVERRESPONSE#}</p><a href="#" class="btn btn-success btn-lg I" id="close-upload-successfull">Cancel</a><a href="http://www.statravel.co.uk" class="btn linkBtn" id="publish-to-live">Publish to live</a>'
   };
-  
+
   export default localisation;
-  

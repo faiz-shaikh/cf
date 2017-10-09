@@ -3867,6 +3867,10 @@ react-select@^1.0.0-rc.10:
     prop-types "^15.5.8"
     react-input-autosize "^2.0.1"
 
+react-timestamp@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/react-timestamp/-/react-timestamp-4.2.1.tgz#e143819cfd9072ef37fc1717ecba215eef78cb82"
+
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-transform-catch-errors/-/react-transform-catch-errors-1.0.2.tgz#1b4d4a76e97271896fc16fe3086c793ec88a9eeb"
@@ -3885,6 +3889,10 @@ react@15.0.2:
     fbjs "^0.8.0"
     loose-envify "^1.1.0"
     object-assign "^4.0.1"
+
+reactable@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/reactable/-/reactable-0.14.1.tgz#2ab9895e3df6da2498625de46d3691592d18c93b"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

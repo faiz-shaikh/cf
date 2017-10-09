@@ -10,7 +10,7 @@ const Timestamp = require('react-timestamp');
 function OfferNumber(props) {
   OfferNumber.propTypes = {
     firstObjectFromData: PropTypes.object,
-    date: PropTypes.number,
+    date: PropTypes.number
   };
 
   function timeconverter() {
