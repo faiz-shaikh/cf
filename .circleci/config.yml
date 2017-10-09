@@ -36,10 +36,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run:
-          test:
-            override:
-              - echo "done"
+      - run: npm test
 
       - run:
           name: Creating a Build
