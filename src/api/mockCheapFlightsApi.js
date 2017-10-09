@@ -1,54 +1,39 @@
 import delay from './delay';
-import Axios from 'axios';
+import {HTTP} from './configureApi'; // eslint-disable-line
 
-  const cheapflights = [];
+const cheapflights = [];
 
-
-  class CheapflightApi
+class CheapflightApi
+{
+  static getAllCheapflights()
   {
-    static getAllCheapflights()
-    {
-      return new Promise((resolve, reject) =>
-      {
-        setTimeout(() =>
-        {
-          Axios.get('http://59d4d1db5803340011fd5f98.mockapi.io/cheapflights/').then(response =>
-            console.log(response.data))
-          resolve(Object.assign([], cheapflights));
-        }, delay);
-      });
-    }
-  
-    static saveCheapflight(cheapflight)
-    {
-      return new Promise((resolve, reject) =>
-      {
-        setTimeout(() =>
-        {
-          if (cheapflight.id)
-          {
-            Axios(
-            {
-              method: 'put',
-              url: `http://59d4d1db5803340011fd5f98.mockapi.io/cheapflights/${cheapflight.id}/`,
-              data: cheapflight
-            })
-          }
-          else
-          {
-            Axios(
-            {
-              method: 'post',
-              url: `http://59d4d1db5803340011fd5f98.mockapi.io/cheapflights/${cheapflight.id}/`,
-              data: cheapflight
-            })
-          }
-  
-          resolve(Object.assign(
-          {}, cheapflight));
-        }, delay);
-      });
-    }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        HTTP(`cheapflights`).catch(err => {
+          throw err;
+        });
+        resolve(Object.assign([], cheapflights));
+      }, delay);
+    });
   }
+
+  static saveCheapflight(cheapflight)
+  {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (cheapflight.id) {
+          HTTP({method: 'put', url: `cheapflights/${cheapflight.id}/`, data: cheapflight}).catch(err => {
+            throw err;
+          });
+        } else {
+          HTTP({method: 'post', url: `cheapflights/${cheapflight.id}/`, data: cheapflight}).catch(err => {
+            throw err;
+          });
+        }
+        resolve(Object.assign({}, cheapflight));
+      }, delay);
+    });
+  }
+}
 
 export default CheapflightApi;

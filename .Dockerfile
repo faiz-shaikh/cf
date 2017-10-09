@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Start the application
-CMD npm run start:prod
+CMD npm run start:$FLIGHTS_CACHE_ADMIN_PROFILE
