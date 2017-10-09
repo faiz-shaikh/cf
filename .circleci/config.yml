@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/flights_cache_admin
+    working_directory: ~/flights-cache-admin
 
     steps:
       - checkout
@@ -45,8 +45,3 @@ jobs:
       - run:
           name: Building Docker Image
           command: docker build --tag flights-cache-admin:1 .
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
