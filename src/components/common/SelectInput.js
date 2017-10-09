@@ -1,6 +1,14 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from "react";
 
-const SelectInput = ({name, label, onChange, defaultOption, value, error, options}) => {
+const SelectInput = ({
+  name,
+  label,
+  onChange,
+  defaultOption,
+  value,
+  error,
+  options
+}) => {
   return (
     <div className="form-group row clearfix">
       <label htmlFor={name}>{label}</label>
@@ -10,12 +18,16 @@ const SelectInput = ({name, label, onChange, defaultOption, value, error, option
           name={name}
           value={value}
           onChange={onChange}
-          className="form-control selectDropdown">
+          className="form-control selectDropdown"
+        >
           <option value="">{defaultOption}</option>
-          {options.map((option) => {
-            return <option key={option.value} value={option.value}>{option.text}</option>;
-          })
-          }
+          {options.map(option => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            );
+          })}
         </select>
         {error && <div className="alert alert-danger">{error}</div>}
       </div>
