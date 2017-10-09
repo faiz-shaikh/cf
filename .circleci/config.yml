@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+
+      - image: circleci/node:7.10
+
+    working_directory: ~/flights_cache_admin
+
+    steps:
+
+      - checkout
+
+      - setup_remote_docker
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Installing Node Packages
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+
+      - run:
+          name: Running Unit Tests
+          command: npm test
+
+      - run:
+          name: Creating a Build
+          command: npm run build
+
+      - run:
+          name: Building Docker Image
+          command: docker build --tag flights-cache-admin:1 .
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
