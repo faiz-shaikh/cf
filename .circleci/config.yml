@@ -19,6 +19,8 @@ jobs:
     steps:
       - checkout
 
+      - setup_remote_docker
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -35,3 +37,16 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+      - run:
+          name: Creating a Build
+          command: npm run build
+
+      - run:
+          name: Building Docker Image
+          command: docker build --tag flights-cache-admin:1 .
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
