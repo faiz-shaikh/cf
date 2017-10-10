@@ -944,6 +944,7 @@ label.togglerCheckbox.disabled input,
 }
 
 .editInputBtn {
+  background-color: #fff;
   height: 34px;
   width: 45px;
   background: url(http://sta-ci.statravel.local:8080/admin/resources/ico/edit_btn.png) 50% 50% no-repeat;
@@ -954,6 +955,8 @@ label.togglerCheckbox.disabled input,
 }
 
 
-.disabledInput {
-  background-color: #f1f1f1;
+input#editUrl:disabled {
+  background-color:#eee;
 }
+
+

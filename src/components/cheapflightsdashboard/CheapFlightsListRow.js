@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const CheapFlightsListRow = ({ cheapflight }) => {
   return (
     <tr>
-      <td>{cheapflight.id}</td>
+      <td>{cheapflight.cmsPageId}</td>
       <td>{cheapflight.destinationName}</td>
       <td>{cheapflight.typeof}</td>
       <td>{cheapflight.noOfDestinations}</td>

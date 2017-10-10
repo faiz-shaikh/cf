@@ -9,9 +9,7 @@ class CheapFlightsDashboardPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.redirectToCheapFlightDashboardPage = this.redirectToCheapFlightDashboardPage.bind(
-      this
-    );
+    this.redirectToCheapFlightDashboardPage = this.redirectToCheapFlightDashboardPage.bind(this);
   }
 
   redirectToCheapFlightDashboardPage() {
@@ -31,8 +29,8 @@ class CheapFlightsDashboardPage extends React.Component {
               <li data-name="region">
                 <Link to={"/cheapflight"}>Region Page</Link>
               </li>
-              <li>
-                <Link to={"/region/"}>City Page</Link>
+              <li data-name="region">
+                <Link to={"/cheapflight"}>City Page</Link>
               </li>
             </ul>
           </label>

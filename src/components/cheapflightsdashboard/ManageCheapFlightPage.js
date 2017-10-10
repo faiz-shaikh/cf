@@ -29,8 +29,13 @@ export class ManageCheapFlightPage extends React.Component {
 
   updateCheapFlightState(event) {
     const field = event.target.name;
+    console.log(event.target.name, event.target.value)
     let cheapflight = Object.assign({}, this.state.cheapflight);
     cheapflight[field] = event.target.value;
+    if(event.target.name == 'destinationName'){
+      console.log("hi");
+      cheapflight.pageUrl = `/cheapflights-to-${cheapflight.destinationName.toLowerCase().split(' ').join('-')}.htm`
+    }
     return this.setState({ cheapflight: cheapflight });
   }
 
@@ -106,6 +111,7 @@ function mapStateToProps(state, ownProps) {
   const cheapFlightId = ownProps.params.id; // from the path `/cheapflight/:id`
 
   let cheapflight = {
+    cmsPageId: "",
     id: "",
     editHref: "",
     destinationName: "",

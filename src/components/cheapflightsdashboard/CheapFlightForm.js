@@ -3,6 +3,8 @@ import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 import ClicktoEditInput from "../common/ClicktoEditInput";
 
+
+
 const CheapFlightForm = ({
   cheapflight,
   allRegions,
@@ -18,14 +20,7 @@ const CheapFlightForm = ({
       data-page-name="bookingEngineFlightsSearchConfig"
     >
       <form>
-        <ClicktoEditInput
-          name="pageUrl"
-          label="URL (auto-generated)"
-          value={cheapflight.pageUrl}
-          onChange={onChange}
-          error={errors.pageUrl}
-        />
-
+      {cheapflight.cmsPageId && <div className="form-group row clearfix"><label htmlFor="cmsPageId">PageID#</label><div className="field"><input type="text" name="cmsPageId" style={{'border':'none'}} className="form-control" value={cheapflight.cmsPageId} disabled/></div></div>}
         <SelectInput
           name="destinationName"
           label="Select Region"
@@ -34,6 +29,14 @@ const CheapFlightForm = ({
           options={allRegions}
           onChange={onChange}
           error={errors.destinationName}
+        />
+
+        <ClicktoEditInput
+          name="pageUrl"
+          label="URL (auto-generated)"
+          value={cheapflight.pageUrl}
+          onChange={onChange}
+          error={errors.pageUrl}
         />
 
         <TextInput
@@ -79,7 +82,7 @@ CheapFlightForm.propTypes = {
   cheapflight: React.PropTypes.object.isRequired,
   allRegions: React.PropTypes.array,
   onSave: React.PropTypes.func.isRequired,
-  onChange: React.PropTypes.func.isRequired,
+  onChange: React.PropTypes.func.isRequired, 
   saving: React.PropTypes.bool,
   errors: React.PropTypes.object
 };
