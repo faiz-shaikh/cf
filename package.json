@@ -1,5 +1,5 @@
 {
-  "name": "ps-redux",
+  "name": "cheapflights-admin",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -18,7 +18,7 @@
     "start:prod": "npm run test && npm run build && npm run start:production",
     "start:production": "babel-node tools/distServer.js"
   },
-  "author": "Cory House",
+  "author": "Faiz Shaikh",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
@@ -77,6 +77,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/faiz-shaikh/cf"
   }
 }
