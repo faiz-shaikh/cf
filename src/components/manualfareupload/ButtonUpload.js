@@ -10,7 +10,7 @@ import axios from 'axios';
 import localisation from './localisation';
 import serverUrl from '../../env-config/sta-dev';
 class ButtonUpload extends React.Component { // eslint-disable-line react/prefer-stateless-function
-    
+
     handleUpload(props) {
     const body = document.getElementsByTagName('body')[0];
     const fn = this.props;
@@ -89,7 +89,7 @@ class ButtonUpload extends React.Component { // eslint-disable-line react/prefer
           className="btn linkBtn"
           id="uploadBtn"
           onClick={this.handleUpload.bind(this)} //eslint-disable-line
-        >Upload</a>
+        >Upload CSV</a>
     );
   }
 }
