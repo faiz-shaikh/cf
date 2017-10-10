@@ -5,6 +5,7 @@ import * as cheapFlightsActions from "../../actions/cheapFlightsActions";
 import CheapFlightForm from "./CheapFlightForm";
 import { regionsFormattedForDropdown } from "../../selectors/selectors";
 import toastr from "toastr";
+import RichTextEditor from 'react-rte';
 
 export class ManageCheapFlightPage extends React.Component {
   constructor(props, context) {
@@ -35,6 +36,10 @@ export class ManageCheapFlightPage extends React.Component {
     if(event.target.name == 'destinationName'){
       console.log("hi");
       cheapflight.pageUrl = `/cheapflights-to-${cheapflight.destinationName.toLowerCase().split(' ').join('-')}.htm`
+    }
+    if(event.target.name == 'seoparagraph'){
+      console.log("hi2");
+      event.target.value.toString('html')
     }
     return this.setState({ cheapflight: cheapflight });
   }
@@ -115,6 +120,9 @@ function mapStateToProps(state, ownProps) {
     id: "",
     editHref: "",
     destinationName: "",
+    heading1: "",
+    heading2: "",
+    seoparagraph: RichTextEditor.createEmptyValue(),
     user: "",
     typeof: "",
     pageUrl: "",

@@ -2,7 +2,8 @@ import React from "react";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 import ClicktoEditInput from "../common/ClicktoEditInput";
-
+import SectionHeader from "../common/SectionHeader";
+import RichTextEditor from 'react-rte';
 
 
 const CheapFlightForm = ({
@@ -37,6 +38,31 @@ const CheapFlightForm = ({
           value={cheapflight.pageUrl}
           onChange={onChange}
           error={errors.pageUrl}
+        />
+
+        <SectionHeader text="Destination SEO Content" />
+
+        <TextInput
+          name="heading1"
+          label="H1"
+          inputType="text"
+          value={cheapflight.heading1}
+          onChange={onChange}
+          error={errors.heading1}
+        />
+
+        <TextInput
+        name="heading2"
+        label="H2"
+        inputType="text"
+        value={cheapflight.heading2}
+        onChange={onChange}
+        error={errors.heading2}
+        />
+        <RichTextEditor
+        name="seoparagraph"
+        value={cheapflight.seoparagraph}
+        onChange={onChange}
         />
 
         <TextInput
