@@ -3,14 +3,16 @@ import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 import ClicktoEditInput from "../common/ClicktoEditInput";
 import SectionHeader from "../common/SectionHeader";
-import RichTextEditor from 'react-rte';
+import RichTextEditor from '../common/WYSIWYG';
 
 
 const CheapFlightForm = ({
   cheapflight,
+  editorValue,
   allRegions,
   onSave,
   onChange,
+  onEditorChange,
   saving,
   errors
 }) => {
@@ -59,10 +61,13 @@ const CheapFlightForm = ({
         onChange={onChange}
         error={errors.heading2}
         />
+
         <RichTextEditor
         name="seoparagraph"
-        value={cheapflight.seoparagraph}
-        onChange={onChange}
+        label="Paragraph"
+        value={editorValue}
+        onChange={onEditorChange}
+        editorClassName="demo-editor"
         />
 
         <TextInput
@@ -106,9 +111,11 @@ const CheapFlightForm = ({
 
 CheapFlightForm.propTypes = {
   cheapflight: React.PropTypes.object.isRequired,
+  editorValue: React.PropTypes.object.isRequired,
   allRegions: React.PropTypes.array,
   onSave: React.PropTypes.func.isRequired,
-  onChange: React.PropTypes.func.isRequired, 
+  onChange: React.PropTypes.func.isRequired,
+  onEditorChange: React.PropTypes.func.isRequired,
   saving: React.PropTypes.bool,
   errors: React.PropTypes.object
 };

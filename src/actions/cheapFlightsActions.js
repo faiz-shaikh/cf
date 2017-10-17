@@ -25,7 +25,7 @@ export function loadCheapflights() {
   return function (dispatch) {
     dispatch(beginAjaxCall());
     Axios.get('http://59d4d1db5803340011fd5f98.mockapi.io/cheapflights/').then(cheapflights => {
-      console.log(cheapflights)
+      console.log(cheapflights);
       dispatch(loadCheapflightsSuccess(cheapflights.data));
     }).catch(error => {
       throw(error);
@@ -37,7 +37,7 @@ export function saveCheapflight(cheapflight) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
     return CheapflightApi.saveCheapflight(cheapflight).then(cheapflight => {
-      console.log(cheapflight.id)
+      console.log(cheapflight.id);
       cheapflight.id ? dispatch(updateCheapflightSuccess(cheapflight)) : dispatch(createCheapflightSuccess(cheapflight));
     }).catch(error => {
       dispatch(ajaxCallError(error));
