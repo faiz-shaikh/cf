@@ -26,21 +26,15 @@ export class ManageCheapFlightPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.cheapflight.id != nextProps.cheapflight.id) {
-      console.log('this.props', this.props);
-      console.log('this.state', this.state);
-      console.log('nextprops', nextProps);
       // Necessary to populate form when existing cheapflight is loaded directly.
       this.setState({
         cheapflight: Object.assign({}, nextProps.cheapflight)
       });
       let editorValue = this.state.editorValue;
-      console.log((editorValue.toString('html') !== nextProps.cheapflight.seoparagraph)); //true
       if (editorValue.toString('html') !== nextProps.cheapflight.seoparagraph) {
         editorValue = RichTextEditor.createValueFromString(nextProps.cheapflight.seoparagraph, 'html');
-        console.log(editorValue);
         this.setState({editorValue: editorValue});
       }
-      console.log({editorValue});
     }
   }
 
@@ -60,10 +54,8 @@ export class ManageCheapFlightPage extends React.Component {
 
   updateEditorChanges(editorValue) {
     this.setState({editorValue});
-    console.log(editorValue.toString('html'));
     let cheapflight = Object.assign({}, this.state.cheapflight);
     cheapflight.seoparagraph = editorValue.toString('html');
-    console.log(cheapflight.seoparagraph);
     return this.setState({cheapflight: cheapflight});
   }
 
@@ -158,7 +150,6 @@ function mapStateToProps(state, ownProps) {
 
   if (cheapFlightId && state.cheapflights.length > 0) {
     cheapflight = getCheapFlightById(state.cheapflights, cheapFlightId);
-    console.log('current cheapflight',cheapflight);
     // let editorValue = RichTextEditor.createValueFromString(cheapflight.seoparagraph, 'html');
     // console.log(state);
     // editorValue = this.state.editorValue;
