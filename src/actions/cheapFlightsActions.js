@@ -24,7 +24,7 @@ export function updateCheapflightSuccess(cheapflight) {
 export function loadCheapflights() {
   return function (dispatch) {
     dispatch(beginAjaxCall());
-    Axios.get('http://59d4d1db5803340011fd5f98.mockapi.io/cheapflights/').then(cheapflights => {
+    Axios.get('http://59d4d1db5803340011fd5f98.mockapi.io/xyz/').then(cheapflights => {
       console.log(cheapflights);
       dispatch(loadCheapflightsSuccess(cheapflights.data));
     }).catch(error => {

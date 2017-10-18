@@ -6,7 +6,7 @@ const CheapFlightsListRow = ({ cheapflight }) => {
     <tr>
       <td>{cheapflight.cmsPageId}</td>
       <td>{cheapflight.destinationName}</td>
-      <td>{cheapflight.typeof}</td>
+      <td>{cheapflight.typeOf}</td>
       <td>{cheapflight.noOfDestinations}</td>
       <td>{cheapflight.noOfFlights}</td>
       <td>{cheapflight.user}</td>

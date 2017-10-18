@@ -12,6 +12,7 @@ class RegionApi {
         .get('http://10.44.254.6:3100/regions/available/uk')
         .then(function (response, data) {
           data = response.data.data;
+          console.log(data)
           resolve(Object.assign([], data));
         })
         .catch(err => {

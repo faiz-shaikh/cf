@@ -41,7 +41,7 @@ const WYSIWYG = ({
       <div className="field">
         <RichTextEditor
           name={name}
-          className="form-control"
+          className="wysiwhgEditor"
           placeholder={placeholder}
           value={value}
           onChange={onChange}
