@@ -4,6 +4,7 @@ import { Link, browserHistory } from "react-router";
 import { bindActionCreators } from "redux";
 import * as cheapFlightsActions from "../../actions/cheapFlightsActions";
 import CheapFlightsList from "./CheapFlightsList";
+import RichTextEditor from 'react-rte';
 
 class CheapFlightsDashboardPage extends React.Component {
   constructor(props, context) {
@@ -48,7 +49,8 @@ CheapFlightsDashboardPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    cheapflights: state.cheapflights //this name comes from the root reducer
+    cheapflights: state.cheapflights, //this name comes from the root reducer
+    editorValue: state.editorValue
   };
 }
 

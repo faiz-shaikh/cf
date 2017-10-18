@@ -14,7 +14,9 @@ export class ManageCheapFlightPage extends React.Component {
     this.state = {
       cheapflight: Object.assign({}, props.cheapflight),
       errors: {},
-      editorValue: RichTextEditor.createEmptyValue()
+      editorValue: this.props.cheapflight.seoparagraph ?
+      RichTextEditor.createValueFromString(this.props.cheapflight.seoparagraph, 'html') :
+      RichTextEditor.createEmptyValue()
     };
 
     this.updateCheapFlightState = this.updateCheapFlightState.bind(this);
@@ -156,12 +158,12 @@ function mapStateToProps(state, ownProps) {
 
   if (cheapFlightId && state.cheapflights.length > 0) {
     cheapflight = getCheapFlightById(state.cheapflights, cheapFlightId);
-    console.log(cheapflight);
-    let editorValue = RichTextEditor.createValueFromString(cheapflight.seoparagraph, 'html');
-    console.log(state);
-    editorValue = this.state.editorValue;
-    console.log('editorValue',state.editorValue);
-    editorValue = this.state.editorValue;
+    console.log('current cheapflight',cheapflight);
+    // let editorValue = RichTextEditor.createValueFromString(cheapflight.seoparagraph, 'html');
+    // console.log(state);
+    // editorValue = this.state.editorValue;
+    // console.log('editorValue',state.editorValue);
+    // editorValue = this.state.editorValue;
 
   }
 
