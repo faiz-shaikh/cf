@@ -14,14 +14,18 @@ export class ManageCheapFlightPage extends React.Component {
     this.state = {
       cheapflight: Object.assign({}, props.cheapflight),
       errors: {},
-      editorValue: this.props.cheapflight.seoparagraph ?
-      RichTextEditor.createValueFromString(this.props.cheapflight.seoparagraph, 'html') :
+      editorValue: this.props.cheapflight.seoContentParagraph1 ?
+      RichTextEditor.createValueFromString(this.props.cheapflight.seoContentParagraph1, 'html') :
+      RichTextEditor.createEmptyValue(),
+      editorValue2: this.props.cheapflight.seoContentParagraph2 ?
+      RichTextEditor.createValueFromString(this.props.cheapflight.seoContentParagraph2, 'html') :
       RichTextEditor.createEmptyValue()
     };
 
     this.updateCheapFlightState = this.updateCheapFlightState.bind(this);
     this.saveCheapflight = this.saveCheapflight.bind(this);
     this.updateEditorChanges = this.updateEditorChanges.bind(this);
+    this.updateEditorChanges2 = this.updateEditorChanges2.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,9 +35,14 @@ export class ManageCheapFlightPage extends React.Component {
         cheapflight: Object.assign({}, nextProps.cheapflight)
       });
       let editorValue = this.state.editorValue;
-      if (editorValue.toString('html') !== nextProps.cheapflight.seoparagraph) {
-        editorValue = RichTextEditor.createValueFromString(nextProps.cheapflight.seoparagraph, 'html');
+      if (editorValue.toString('html') !== nextProps.cheapflight.seoContentParagraph1) {
+        editorValue = RichTextEditor.createValueFromString(nextProps.cheapflight.seoContentParagraph1, 'html');
         this.setState({editorValue: editorValue});
+      }
+      let editorValue2 = this.state.editorValue2;
+      if (editorValue2.toString('html') !== nextProps.cheapflight.seoContentParagraph2) {
+        editorValue2 = RichTextEditor.createValueFromString(nextProps.cheapflight.seoContentParagraph2, 'html');
+        this.setState({editorValue2: editorValue2});
       }
     }
   }
@@ -55,7 +64,14 @@ export class ManageCheapFlightPage extends React.Component {
   updateEditorChanges(editorValue) {
     this.setState({editorValue});
     let cheapflight = Object.assign({}, this.state.cheapflight);
-    cheapflight.seoparagraph = editorValue.toString('html');
+   cheapflight.seoContentParagraph1 = editorValue.toString('html');
+    return this.setState({cheapflight: cheapflight});
+  }
+
+  updateEditorChanges2(editorValue2) {
+    this.setState({editorValue2});
+    let cheapflight = Object.assign({}, this.state.cheapflight);
+   cheapflight.seoContentParagraph2 = editorValue2.toString('html');
     return this.setState({cheapflight: cheapflight});
   }
 
@@ -102,11 +118,13 @@ export class ManageCheapFlightPage extends React.Component {
         allRegions={this.props.regions}
         onChange={this.updateCheapFlightState}
         onEditorChange={this.updateEditorChanges}
+        onEditorChange2={this.updateEditorChanges2}
         onSave={this.saveCheapflight}
         cheapflight={this.state.cheapflight}
         errors={this.state.errors}
         saving={this.state.saving}
         editorValue={this.state.editorValue}
+        editorValue2={this.state.editorValue2}
       />
     );
   }
@@ -137,9 +155,13 @@ function mapStateToProps(state, ownProps) {
     id: "",
     editHref: "",
     destinationName: "",
-    heading1: "",
-    heading2: "",
-    seoparagraph: "",
+    seoContentMainHeading: "",
+    seoContentHeading1: "",
+    seoContentParagraph1: "",
+    seoContentHeading2: "",
+    seoContentParagraph2: "",
+    topDestinationsHeading: "",
+    topDestinationsParagraph: "",
     user: "",
     typeof: "",
     pageUrl: "",

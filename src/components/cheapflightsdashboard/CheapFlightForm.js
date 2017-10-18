@@ -9,10 +9,12 @@ import RichTextEditor from '../common/WYSIWYG';
 const CheapFlightForm = ({
   cheapflight,
   editorValue,
+  editorValue2,
   allRegions,
   onSave,
   onChange,
   onEditorChange,
+  onEditorChange2,
   saving,
   errors
 }) => {
@@ -45,38 +47,73 @@ const CheapFlightForm = ({
         <SectionHeader text="Destination SEO Content" />
 
         <TextInput
-          name="heading1"
+          name="seoContentMainHeading"
           label="H1"
           inputType="text"
-          value={cheapflight.heading1}
+          value={cheapflight.seoContentMainHeading}
           onChange={onChange}
-          error={errors.heading1}
+          error={errors.seoContentMainHeading}
         />
 
         <TextInput
-        name="heading2"
+        name="seoContentHeading1"
         label="H2"
         inputType="text"
-        value={cheapflight.heading2}
+        value={cheapflight.seoContentHeading1}
         onChange={onChange}
-        error={errors.heading2}
-        />
+        error={errors.seoContentHeading1}
+      />
 
         <RichTextEditor
-        name="seoparagraph"
+        name="seoContentParagraph1"
         label="Paragraph"
         value={editorValue}
         onChange={onEditorChange}
-        editorClassName="demo-editor"
         />
 
         <TextInput
-          name="typeof"
+        name="seoContentHeading2"
+        label="H2"
+        inputType="text"
+        value={cheapflight.seoContentHeading2}
+        onChange={onChange}
+        error={errors.seoContentHeading2}
+        />
+
+        <RichTextEditor
+        name="seoContentParagraph2"
+        label="Paragraph"
+        value={editorValue2}
+        onChange={onEditorChange2}
+        />
+
+        <SectionHeader text="Campaign Module" />
+
+        <SectionHeader text="Content" />
+
+        <TextInput
+        name="topDestinationsHeading"
+        label="Top Destinations Heading"
+        inputType="text"
+        value={cheapflight.topDestinationsHeading}
+        onChange={onChange}
+        error={errors.topDestinationsHeading}
+      />
+
+        <RichTextEditor
+        name="topDestinationsParagraph"
+        label="Top Destinations Paragraph"
+        value={editorValue}
+        onChange={onEditorChange}
+        />
+
+        <TextInput
+          name="typeOf"
           label="type"
-          inputType="text"
-          value={cheapflight.typeof}
+          inputType="hidden"
+          value={cheapflight.typeOf}
           onChange={onChange}
-          error={errors.typeof}
+          error={errors.typeOf}
         />
 
         <TextInput
@@ -112,10 +149,12 @@ const CheapFlightForm = ({
 CheapFlightForm.propTypes = {
   cheapflight: React.PropTypes.object.isRequired,
   editorValue: React.PropTypes.object.isRequired,
+  editorValue2: React.PropTypes.object.isRequired,
   allRegions: React.PropTypes.array,
   onSave: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
   onEditorChange: React.PropTypes.func.isRequired,
+  onEditorChange2: React.PropTypes.func.isRequired,
   saving: React.PropTypes.bool,
   errors: React.PropTypes.object
 };
