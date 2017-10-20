@@ -22,11 +22,11 @@ class CheapflightApi
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (cheapflight.id) {
-          HTTP({method: 'put', url: `xyz/${cheapflight.id}/`, data: cheapflight}).catch(err => {
+          HTTP({method: 'put', url: `cheapflight/${cheapflight.id}/`, data: cheapflight}).catch(err => {
             throw err;
           });
         } else {
-          HTTP({method: 'post', url: `xyz/${cheapflight.id}/`, data: cheapflight}).catch(err => {
+          HTTP({method: 'post', url: `xyz`, data: cheapflight}).catch(err => {
             throw err;
           });
         }

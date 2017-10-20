@@ -47,41 +47,38 @@ const CheapFlightForm = ({
         <SectionHeader text="Destination SEO Content" />
 
         <TextInput
-          name="seoContentMainHeading"
+          name="seoContent.mainHeading"
           label="H1"
           inputType="text"
-          value={cheapflight.seoContentMainHeading}
+          value={cheapflight.seoContent.mainHeading}
           onChange={onChange}
-          error={errors.seoContentMainHeading}
         />
 
         <TextInput
-        name="seoContentHeading1"
+        name="seoContent.heading1"
         label="H2"
         inputType="text"
-        value={cheapflight.seoContentHeading1}
+        value={cheapflight.seoContent.heading1}
         onChange={onChange}
-        error={errors.seoContentHeading1}
       />
 
         <RichTextEditor
-        name="seoContentParagraph1"
+        name="seoContent.paragraph1"
         label="Paragraph"
         value={editorValue}
         onChange={onEditorChange}
         />
 
         <TextInput
-        name="seoContentHeading2"
+        name="seoContent.heading2"
         label="H2"
         inputType="text"
-        value={cheapflight.seoContentHeading2}
+        value={cheapflight.seoContent.heading2}
         onChange={onChange}
-        error={errors.seoContentHeading2}
         />
 
         <RichTextEditor
-        name="seoContentParagraph2"
+        name="seoContent.paragraph2"
         label="Paragraph"
         value={editorValue2}
         onChange={onEditorChange2}
@@ -98,14 +95,52 @@ const CheapFlightForm = ({
         value={cheapflight.topDestinationsHeading}
         onChange={onChange}
         error={errors.topDestinationsHeading}
-      />
+        />
 
-        <RichTextEditor
+        {/* <RichTextEditor
         name="topDestinationsParagraph"
         label="Top Destinations Paragraph"
         value={editorValue}
         onChange={onEditorChange}
+        /> */}
+
+        <TextInput
+        name="blogModuleHeading"
+        label="Blog Module Heading"
+        inputType="text"
+        value={cheapflight.blogModuleHeading}
+        onChange={onChange}
+        error={errors.blogModuleHeading}
         />
+
+        <TextInput
+        name="blogFeedUrl"
+        label="Blog Feed URL"
+        inputType="text"
+        value={cheapflight.blogFeedUrl}
+        onChange={onChange}
+        error={errors.blogFeedUrl}
+        />
+
+        <TextInput
+        name="blogModuleReadMoreLinkText"
+        label="Read More Link Text"
+        inputType="text"
+        value={cheapflight.blogModuleReadMoreLinkText}
+        onChange={onChange}
+        error={errors.blogModuleReadMoreLinkText}
+        />
+
+        <TextInput
+        name="blogModuleReadMoreLinkUrl"
+        label="Read More Link URL"
+        inputType="text"
+        value={cheapflight.blogModuleReadMoreLinkUrl}
+        onChange={onChange}
+        error={errors.blogModuleReadMoreLinkUrl}
+        />
+
+
 
         <TextInput
           name="typeOf"

@@ -28,7 +28,7 @@ class CheapFlightsDashboardPage extends React.Component {
             <input type="checkbox" />
             <ul>
               <li data-name="region">
-                <Link to={"/cheapflight/region"}>Region Page</Link>
+                <Link to={"/cheapflight"}>Region Page</Link>
               </li>
               <li data-name="region">
                 <Link to={"/cheapflight"}>City Page</Link>

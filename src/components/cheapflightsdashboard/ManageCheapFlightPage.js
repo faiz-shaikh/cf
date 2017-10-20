@@ -48,30 +48,40 @@ export class ManageCheapFlightPage extends React.Component {
   }
 
   updateCheapFlightState(event) {
-    const field = event.target.name;
-    let cheapflight = Object.assign({}, this.state.cheapflight);
-    cheapflight[field] = event.target.value;
+    let field = event.target.name;
+    let currentJSONForm = Object.assign({}, this.state.cheapflight);
+
+    let newField = field.split('.');
+
+    if (newField.length > 1) {
+      let blah1 = currentJSONForm[newField[0]];
+      blah1[newField[1]] = event.target.value;
+    }
+    else currentJSONForm[field] = event.target.value;
+
+    console.log('currentJSONForm',currentJSONForm)
     if (event.target.name == 'destinationName') {
-      cheapflight.pageUrl = `/cheapflights-to-${cheapflight
+      currentJSONForm.pageUrl = `/cheapflights-to-${currentJSONForm
         .destinationName
         .toLowerCase()
         .split(' ')
         .join('-')}.htm`;
     }
-    return this.setState({cheapflight: cheapflight});
+    return this.setState({cheapflight: currentJSONForm});
   }
 
   updateEditorChanges(editorValue) {
     this.setState({editorValue});
+    console.log(editorValue)
     let cheapflight = Object.assign({}, this.state.cheapflight);
-   cheapflight.seoContentParagraph1 = editorValue.toString('html');
+    cheapflight.seoContentParagraph1 = editorValue.toString('html');
     return this.setState({cheapflight: cheapflight});
   }
 
   updateEditorChanges2(editorValue2) {
     this.setState({editorValue2});
     let cheapflight = Object.assign({}, this.state.cheapflight);
-   cheapflight.seoContentParagraph2 = editorValue2.toString('html');
+    cheapflight.seoContentParagraph2 = editorValue2.toString('html');
     return this.setState({cheapflight: cheapflight});
   }
 
@@ -116,6 +126,7 @@ export class ManageCheapFlightPage extends React.Component {
     return (
       <CheapFlightForm
         allRegions={this.props.regions}
+        seoContent={this.state.cheapflight.seoContent}
         onChange={this.updateCheapFlightState}
         onEditorChange={this.updateEditorChanges}
         onEditorChange2={this.updateEditorChanges2}
@@ -150,25 +161,84 @@ function getCheapFlightById(cheapflights, id) {
 function mapStateToProps(state, ownProps) {
   const cheapFlightId = ownProps.params.id; // from the path `/cheapflight/:id`
 
-  let cheapflight = {
-    cmsPageId: "",
-    id: "",
-    editHref: "",
-    destinationName: "",
-    seoContentMainHeading: "",
-    seoContentHeading1: "",
-    seoContentParagraph1: "",
-    seoContentHeading2: "",
-    seoContentParagraph2: "",
-    topDestinationsHeading: "",
-    topDestinationsParagraph: "",
-    user: "",
-    typeof: "",
-    pageUrl: "",
-    noOfDestinations: "",
-    noOfFlights: "",
-    updatedOn: ""
-  };
+// let cheapflight = {
+//   cmsPageId: "",
+//   id: "",
+//   editHref: "",
+//   destinationName: "",
+//   seoContentMainHeading: "",
+//   seoContent: {
+//     heading1: ""
+//   },
+//   seoContentParagraph1: "",
+//   seoContentHeading2: "",
+//   seoContentParagraph2: "",
+//   topDestinationsHeading: "",
+//   topDestinationsParagraph: "",
+//   blogModuleHeading: "",
+//   blogFeedUrl: "",
+//   blogModuleReadMoreLinkText: "",
+//   blogModuleReadMoreLinkUrl: "",
+//   user: "",
+//   typeof: "",
+//   pageUrl: "",
+//   noOfDestinations: "",
+//   noOfFlights: "",
+//   updatedOn: ""
+// };
+
+let cheapflight = {
+  cmsPageId: "",
+  destinationName:"",
+  user: "",
+  typeof: "",
+  blockContent: null,
+  pos: "",
+  url:"",
+  seoContent:{
+     mainHeading:"",
+     heading1:"",
+     paragraph1:"",
+     heading2:"",
+     paragraph2:""
+  },
+  campaigns:[
+     {
+        image:"",
+        url:""
+     },
+     {
+        image:"",
+        url:""
+     },
+     {
+        image:"",
+        url:""
+     }
+  ],
+  aboutSta:{
+     mainHeading:"",
+     subheading:"",
+     heading1:"",
+     text1:"",
+     heading2:"",
+     text2:"",
+     heading3:"",
+     text3:""
+  } ,
+  termsConditions:null,
+  faq:{
+     heading:"FAQ heading",
+     intro:"FAQ intro",
+     faqs:[
+        {
+           question:"FAQ question",
+           answer:"FAQ answer"
+        }
+     ]
+  },
+  heroBannerImageName:null
+}
 
   if (cheapFlightId && state.cheapflights.length > 0) {
     cheapflight = getCheapFlightById(state.cheapflights, cheapFlightId);
@@ -182,6 +252,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     cheapflight: cheapflight,
+    seoContent: cheapflight.seoContent,
     regions: regionsFormattedForDropdown(state.regions)
   };
 }

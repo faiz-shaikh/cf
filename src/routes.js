@@ -11,10 +11,8 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="cheapflights-dashboard" component={CheapFlightsDashboardPage} />
-    <Route path="cheapflight/region" component={ManageCheapFlightPage} />
-    <Route path="cheapflight/city" component={ManageCheapFlightPage} />
+    <Route path="cheapflight" component={ManageCheapFlightPage} />
     <Route path="cheapflight/:id" component={ManageCheapFlightPage} />
-    <Route path="cheapflight/:typeOf/:id" component={ManageCheapFlightPage} />
     <Route path="cache-config" component={CacheConfig} />
     <Route path="manual-fare-upload" component={ManualFareUpload} />
   </Route>
